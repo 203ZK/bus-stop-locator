@@ -1,20 +1,26 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const db = require("./db/queries");
 
-const data = {
-    stops: [
-        { name: "Opp Tanglin Halt", code: 43013 },
-        { name: "Blk 709", code: 39483 },
-        { name: "Newton Stn Exit A", code: 92432 }
-    ]
-};
-
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.json(data);
-});
+async function getStations(req, res) {
+    const stations = await db.getAllStations();
+    res.send({ stations });
+}
+
+async function getStationByName(res, name) {
+    const station = await db.getByName(name);
+    const details = station[0];
+    console.log(details);
+    res.send(details);
+}
+
+app.get("/", getStations);
+app.post("/", (req, res) => getStationByName(res, req.body.query));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
