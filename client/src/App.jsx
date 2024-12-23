@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Search from "./components/Search";
+import Card from "./components/Card";
 
 function App() {
-    const [index, setIndex] = useState(0);
 	const [data, setData] = useState({});
 
     const handleResponse = (station) => {
         setData(station);
-        setIndex(1);
     };
 
 	return (
-        <div>
-            {(typeof data === "undefined") ? (
-                <p>Loading...</p>
-            ) : (index === 0) ? (
-                <Search update={(station) => handleResponse(station)}></Search>
+        <div className="main">
+            <Search update={(station) => handleResponse(station)}></Search>
+            {(Object.keys(data).length === 0) ? (
+                <div>Search an MRT station!</div>
             ) : (
-                <p>{data.code}, {data.station_name}</p>
+                <Card 
+                    code={data.bus_stop_code}
+                    name={data.bus_stop_name}
+                    services={data.bus_services}
+                    directions={data.directions}
+                ></Card>
             )}
         </div>
 	);
 }
 
 export default App;
-
-/* <div>
-    <h1>MRT Stations:</h1>
-    <ul>
-        {data.map((station, idx) => (
-            <li key={idx}>{station.station_name}</li>
-        ))}
-    </ul>
-</div> */

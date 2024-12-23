@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: rgb(250, 63, 63);
+}
+
+div.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+form.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 40%;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 16px;
+    padding: 0 0 0 20px;
+}
+
+input#query {
+    border: none;
+    outline: none;
+    line-height: 20px;
+    font-size: 16px;
+    background: transparent;
+}
+
+button#submit-btn {
+    border: none;
+    outline: none;
+    background-color: rgb(12, 108, 226);
+    color: white;
+    font-weight: 100;
+    font-size: 16px;
+    border-radius: 0 16px 16px 0;
+    padding: 10.9px 12px;
+}

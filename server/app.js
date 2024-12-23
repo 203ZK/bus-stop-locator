@@ -19,8 +19,19 @@ async function getStationByName(res, name) {
     res.send(details);
 }
 
+async function getDirections(res, name) {
+    const station = await db.getBusStopDirections(name);
+
+    if (station.length !== 0) {
+        const details = station[0];
+        res.send(details);
+    } else {
+        res.send({});
+    }
+}
+
 app.get("/", getStations);
-app.post("/", (req, res) => getStationByName(res, req.body.query));
+app.post("/", (req, res) => getDirections(res, req.body.query));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
