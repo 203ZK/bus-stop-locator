@@ -1,3 +1,25 @@
+/* Fonts */
+@font-face {
+    font-family: 'Ocean Sans Bold';
+    src: url(fonts/OceanSansStd-Bold.woff);
+}
+
+@font-face {
+    font-family: 'Ocean Sans Semibold';
+    src: url(fonts/OceanSansStd-Semibold.woff);
+}
+
+@font-face {
+    font-family: 'Ocean Sans Semibold Ext';
+    src: url(fonts/OceanSansStd-SemiboldExt.woff);
+}
+
+@font-face {
+    font-family: 'LTAIdentity';
+    src: url(fonts/LTAIdentity-Medium.woff);
+}
+
+/* General styles */
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -9,22 +31,25 @@ div.main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
 }
 
+/* Search bar styles */
 form.search-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     width: 40%;
+    min-width: 300px;
     margin: 0 auto;
     height: 40px;
     border-radius: 16px;
     padding: 0 0 0 20px;
+    margin-bottom: 50px;
 }
 
 input#query {
+    flex: 1;
     border: none;
     outline: none;
     line-height: 20px;
@@ -40,5 +65,98 @@ button#submit-btn {
     font-weight: 100;
     font-size: 16px;
     border-radius: 0 16px 16px 0;
-    padding: 10.9px 12px;
+    padding: 11px 12px;
+    cursor: pointer;
+}
+
+button#submit-btn:active {
+    background-color: rgb(10, 83, 173);
+}
+
+/* Card styles */
+div.card {
+    background-color: white;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Title styles */
+div.card-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+}
+
+span.bus-stop-code {
+    background-color: rgb(79, 190, 245);
+    font-family: 'Ocean Sans Semibold';
+    font-size: 18px;
+    color: white;
+    padding: 3px 6px;
+    margin-right: 5px;
+}
+
+div.bus-stop-title {
+    font-weight: bold;
+}
+
+/* Card details styles */
+div.card-details {
+    border-top: 1px solid rgb(194, 194, 194);
+    padding: 0 20px 16px 20px;
+}
+
+div.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+}
+
+div.bus-service {
+    font-family: 'Ocean Sans Semibold';
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(135, 224, 94);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+div.directions-details {
+    padding: 20px 0;
+}
+
+span.line {
+    font-family: 'LTAIdentity';
+    padding: 3px 5px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+span.red {
+    background-color: #df2b2b;
+}
+span.green {
+    background-color: #27985c;
+}
+span.purple {
+    background-color: #a317b3;
+}
+span.yellow {
+    background-color: #f49a0f;
+}
+span.blue {
+    background-color: #0055b8;
+}
+span.brown {
+    background-color: #9c5d1f;
+}
+span.grey {
+    background-color: #708370;
+}
+
+span.station-name {
+    font-family: 'LTAIdentity';
 }

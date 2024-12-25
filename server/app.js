@@ -20,13 +20,17 @@ async function getStationByName(res, name) {
 }
 
 async function getDirections(res, name) {
-    const station = await db.getBusStopDirections(name);
+    try {
+        const station = await db.getBusStopDirections(name);
 
-    if (station.length !== 0) {
-        const details = station[0];
-        res.send(details);
-    } else {
-        res.send({});
+        if (station.length !== 0) {
+            const details = station[0];
+            res.send(details);
+        } else {
+            res.send({});
+        }
+    } catch (error) {
+        alert("Error: ", error);
     }
 }
 
