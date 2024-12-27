@@ -2,15 +2,9 @@ import { useState } from "react";
 
 function Card({ station_code, station_name, code, name, services, directions }) {
   const line_colours = {
-    "NS": "red",
-    "EW": "green",
-    "NE": "purple",
-    "CC": "yellow",
-    "DT": "blue",
-    "TE": "brown",
-    "BP": "grey",
-    "ST": "grey",
-    "PT": "grey"
+    "NS": "red", "EW": "green", "NE": "purple", 
+    "CC": "yellow", "DT": "blue", "TE": "brown",
+    "BP": "grey", "ST": "grey","PT": "grey"
   };
 
   const [expanded, setExpanded] = useState(false);
@@ -32,7 +26,7 @@ function Card({ station_code, station_name, code, name, services, directions }) 
             <div className="bus-stop-title">
               <span className="bus-stop-code">{code}</span> {name}
             </div>
-            <div><button onClick={handleToggle}>Expand</button></div>
+            <div><button onClick={handleToggle} id="show">Show directions</button></div>
           </div>
         </>
       ) : (
@@ -41,12 +35,12 @@ function Card({ station_code, station_name, code, name, services, directions }) 
             <div className="bus-stop-title">
               <span className="bus-stop-code">{code}</span> {name}
             </div>
-            <div><button onClick={handleToggle}>Collapse</button></div>
+            <div><button onClick={handleToggle} id="hide">Hide directions</button></div>
           </div>
 
           <div className="card-details">
             <div className="services-details">
-              <p><em>Bus Services</em></p>
+              <p className="bus-services-title"><strong>Bus Services</strong></p>
               <div className="services-grid">
                 {services.map((service) => {
                   return <div key={service} className="bus-service">{service}</div>
@@ -56,14 +50,14 @@ function Card({ station_code, station_name, code, name, services, directions }) 
 
             <div className="directions-details">
               <div className="station-details">
-                <em>Directions from  </em>
+                <span className="directions-from"><strong>Directions from </strong></span>
                 {lines.map((line, idx) => {
                   const prefix = line.substring(0, 2);
                   const colour = line_colours[prefix];
                   const prop = "line " + colour;
                   return <span key={idx} className={prop}>{line}</span>
                 })}
-                <span className="station-name"> {station_name}</span>
+                <span className="station-name"> {station_name}:</span>
               </div>
               <div className="direction-steps">
                 {directions.map((direction, idx) => {

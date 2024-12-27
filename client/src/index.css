@@ -45,7 +45,7 @@ form.search-bar {
     height: 40px;
     border-radius: 16px;
     padding: 0 0 0 20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 input#query {
@@ -89,8 +89,27 @@ div.card-title {
     padding: 16px 20px;
 }
 
+button#show {
+    border: none;
+    outline: none;
+    background-color: rgb(12, 108, 226);
+    border-radius: 14px;
+    font-size: 12px;
+    color: white;
+    padding: 4px 8px;
+}
+
+button#hide {
+    background-color: white;
+    border-radius: 14px;
+    border: 1px solid rgb(12, 108, 226);
+    font-size: 12px;
+    color: rgb(12, 108, 226);
+    padding: 4px 8px;
+}
+
 span.bus-stop-code {
-    background-color: rgb(79, 190, 245);
+    background-color: rgb(41, 180, 249);
     font-family: 'Ocean Sans Semibold';
     font-size: 18px;
     color: white;
@@ -125,7 +144,7 @@ div.bus-service {
 }
 
 div.directions-details {
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
 }
 
 span.line {
@@ -156,7 +175,20 @@ span.brown {
 span.grey {
     background-color: #708370;
 }
-
 span.station-name {
     font-family: 'LTAIdentity';
+}
+
+div.direction-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+div.step {
+    border-left: 5px solid rgb(41, 180, 249);
+    /* background-color: #a9d5f8; */
+    padding: 8px 0;
+    padding-left: 8px;
 }

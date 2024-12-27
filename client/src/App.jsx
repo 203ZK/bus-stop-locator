@@ -17,12 +17,9 @@ function App() {
                 <div>Search an MRT station!</div>
             ) : (
                 <Card 
-                    station_code={data.station_code}
-                    station_name={data.station_name}
-                    code={data.bus_stop_code}
-                    name={data.bus_stop_name}
-                    services={data.bus_services}
-                    directions={data.directions}
+                    station_code={data.station_code} station_name={data.station_name}
+                    code={data.bus_stop_code} name={data.bus_stop_name}
+                    services={data.bus_services} directions={data.directions}
                 ></Card>
             )}
         </div>
