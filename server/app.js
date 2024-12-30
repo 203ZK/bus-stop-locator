@@ -24,8 +24,7 @@ async function getDirections(res, name) {
         const station = await db.getBusStopDirections(name);
 
         if (station.length !== 0) {
-            const details = station[0];
-            res.send(details);
+            res.send(station);
         } else {
             res.send({});
         }

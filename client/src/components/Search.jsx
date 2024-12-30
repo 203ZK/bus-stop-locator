@@ -1,11 +1,15 @@
 import { useState } from "react";
+import Autocomplete from "./Autocomplete";
 
 function Search({ update }) {
     const [query, setQuery] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serialisedQuery = JSON.stringify({ query: query });
+        const inputValue = document.getElementsByClassName("react-autosuggest__input")[0].value;
+        console.log(inputValue);
+
+        const serialisedQuery = JSON.stringify({ query: inputValue });
 
         const fetchOptions = {
             method: "POST",
@@ -25,11 +29,7 @@ function Search({ update }) {
 
     return (
         <form onSubmit={handleSubmit} className="search-bar">
-            <input 
-                type="text" id="query" name="query" 
-                placeholder="Search by station name"
-                onChange={(e) => setQuery(e.target.value)} 
-            />
+            <Autocomplete />
             <button type="submit" id="submit-btn">Search</button>
         </form>
     );

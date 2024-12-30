@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-function Card({ station_code, station_name, code, name, services, directions }) {
-  const line_colours = {
+function Card({ stationCode, stationName, code, name, services, directions }) {
+  const lineColours = {
     "NS": "red", "EW": "green", "NE": "purple", 
-    "CC": "yellow", "DT": "blue", "TE": "brown",
+    "CC": "yellow", "CE": "yellow", "DT": "blue", "TE": "brown",
     "BP": "grey", "ST": "grey","PT": "grey"
   };
 
   const [expanded, setExpanded] = useState(false);
-  const lines = station_code.split("/");
+  const lines = stationCode.split("/");
 
   const handleToggle = () => {
     if (expanded === true) {
@@ -53,11 +53,11 @@ function Card({ station_code, station_name, code, name, services, directions }) 
                 <span className="directions-from"><strong>Directions from </strong></span>
                 {lines.map((line, idx) => {
                   const prefix = line.substring(0, 2);
-                  const colour = line_colours[prefix];
+                  const colour = lineColours[prefix];
                   const prop = "line " + colour;
                   return <span key={idx} className={prop}>{line}</span>
                 })}
-                <span className="station-name"> {station_name}:</span>
+                <span className="station-name"> {stationName}:</span>
               </div>
               <div className="direction-steps">
                 {directions.map((direction, idx) => {

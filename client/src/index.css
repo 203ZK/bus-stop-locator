@@ -38,6 +38,7 @@ form.search-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     background-color: white;
     width: 40%;
     min-width: 300px;
@@ -46,9 +47,15 @@ form.search-bar {
     border-radius: 16px;
     padding: 0 0 0 20px;
     margin-bottom: 40px;
+    margin-top: 70px;
 }
 
-input#query {
+div.react-autosuggest__container, div.react-autosuggest__container--open {
+    position: absolute;
+    top: 9px;
+}
+
+input.react-autosuggest__input {
     flex: 1;
     border: none;
     outline: none;
@@ -58,6 +65,8 @@ input#query {
 }
 
 button#submit-btn {
+    position: absolute;
+    right: 0;
     border: none;
     outline: none;
     background-color: rgb(12, 108, 226);
@@ -78,7 +87,7 @@ div.card {
     background-color: white;
     width: 80%;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border-radius: 10px;
 }
 
