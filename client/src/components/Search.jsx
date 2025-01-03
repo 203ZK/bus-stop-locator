@@ -2,12 +2,9 @@ import { useState } from "react";
 import Autocomplete from "./Autocomplete";
 
 function Search({ update }) {
-    const [query, setQuery] = useState("");
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const inputValue = document.getElementsByClassName("react-autosuggest__input")[0].value;
-        console.log(inputValue);
 
         const serialisedQuery = JSON.stringify({ query: inputValue });
 

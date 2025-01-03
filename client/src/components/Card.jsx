@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Card({ stationCode, stationName, code, name, services, directions }) {
+function Card({ stationCode, stationName, exit, code, name, services, directions }) {
   const lineColours = {
     "NS": "red", "EW": "green", "NE": "purple", 
     "CC": "yellow", "CE": "yellow", "DT": "blue", "TE": "brown",
@@ -24,7 +24,9 @@ function Card({ stationCode, stationName, code, name, services, directions }) {
         <>
           <div className="card-title">
             <div className="bus-stop-title">
-              <span className="bus-stop-code">{code}</span> {name}
+              <span className="bus-stop-code">{code}</span>
+              <span className="bus-stop-title"> {name}</span>
+              <span className="station-exit"> (Via {exit})</span>
             </div>
             <div><button onClick={handleToggle} id="show">Show directions</button></div>
           </div>
@@ -33,7 +35,9 @@ function Card({ stationCode, stationName, code, name, services, directions }) {
         <>
           <div className="card-title">
             <div className="bus-stop-title">
-              <span className="bus-stop-code">{code}</span> {name}
+              <span className="bus-stop-code">{code}</span>
+              <span className="bus-stop-title"> {name}</span>
+              <span className="station-exit"> (Via {exit})</span>
             </div>
             <div><button onClick={handleToggle} id="hide">Hide directions</button></div>
           </div>
